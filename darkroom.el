@@ -269,9 +269,7 @@ window's geometry."
     map))
 
 (defconst darkroom--saved-variables
-  '(mode-line-format
-    header-line-format
-    fringes-outside-margins)
+  '(fringes-outside-margins)
   "Variables saved in `darkroom--saved-state'")
 
 (defvar darkroom--saved-state nil
@@ -289,9 +287,7 @@ With optional JUST-MARGINS, just set the margins."
           (mapcar #'(lambda (sym)
                       (cons sym (buffer-local-value sym (current-buffer))))
                   darkroom--saved-variables))
-    (setq mode-line-format nil
-          header-line-format nil
-          fringes-outside-margins darkroom-fringes-outside-margins)
+    (setq fringes-outside-margins darkroom-fringes-outside-margins)
     (text-scale-increase darkroom-text-scale-increase))
   (mapc #'(lambda (w)
             (with-selected-window w
