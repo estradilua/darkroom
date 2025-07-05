@@ -308,7 +308,7 @@ With optional JUST-MARGINS, just set the margins."
 
 (defun darkroom--enter-or-leave ()
   "Enter or leave darkroom according to window configuration."
-  (cond ((= (count-windows) 1)
+  (cond ((> (window-total-width) 180)
          (darkroom--enter darkroom--saved-state))
         (darkroom--saved-state
          (darkroom--leave))
